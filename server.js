@@ -29,6 +29,16 @@ app.use(express.json())
 app.set('view engine', 'ejs')
 
 //PROCESS ROUTES
+app.get('/', (req, res) => {
+    res.render('index')
+})
+
+app.get('/item', async(req, res) => {
+    const items = await item.find({})
+    res.render('item', {items})
+})
+
+
 app.listen((req, res) => {
     console.log(`Server is running on http://localhost:${port}`)
 })
