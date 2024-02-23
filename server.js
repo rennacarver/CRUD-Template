@@ -34,13 +34,6 @@ app.get('/', (req, res) => {
   res.render('index')
 });
 
-
-app.get('/item', async (req, res) => {
-  const items = await Item.find({});
-  res.render('item', { items });
-});
-
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
