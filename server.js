@@ -30,9 +30,13 @@ app.use(express.json())
 app.set('view engine', 'ejs');
 
 // Routes
-app.get('/', (req, res) => {
+app.get('/ejs', (req, res) => {
   res.render('index')
 });
+
+app.get('/', (request, response) => {
+  response.sendFile(__dirname + '/index.html')
+})
 
 // Start the server
 app.listen(port, () => {
